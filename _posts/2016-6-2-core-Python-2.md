@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 《Python 核心编程》~ 2
+title: Python 核心编程 ~ 2
 categories: [blog ]
 tags: [Python ]
 description: Python 核心编程 第二章
