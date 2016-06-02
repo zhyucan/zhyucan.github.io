@@ -176,3 +176,4 @@ while True:
     if 1 <= x <= 100:
         print 'Good~'
         break
+```
