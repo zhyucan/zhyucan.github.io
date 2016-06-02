@@ -9,14 +9,8 @@ header-img: "img/autumn2.jpg"
     <p><img src="http://o7v1v0rr4.bkt.clouddn.com/IMG_0754.png"></p>
 </center>
 
-這是 16 年 5 月底，搭的一個小 blog，用來寫字和放鬆。  
 
 對我來說，輕鬆的生活就是，陽光、大圖書館、安靜的咖啡桌、寫字寫代碼。
-
-人，物，事，閱讀，編程，心理學，自然界......此去經年，以文記之。
-
-
-
 
 ——Yucan
 

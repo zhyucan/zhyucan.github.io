@@ -62,16 +62,17 @@ print age
 (a)
 
 ```python
->>> while a >= 0:
-...     print a
-...     a -= 1
+>>> a = 0
+>>> while a <= 10:
+...     print a,
+...     a += 1
 ... 
 ```
 (b)  
 
 ```python
 >>> for i in range(11):
-...     print i
+...     print i,
 ... 
 ```
 
@@ -102,6 +103,25 @@ a = raw_input('input a string: ')
 for i in range(len(a)):
     print a[i]
 ```
+---
+```python
+a = raw_input('input a string: ')
+x = 0
+while True:
+    try:
+        print a[x],
+        x += 1
+    except IndexError:
+        break
+print
+```
+
+```python
+a = raw_input('input a string: ')
+for i in a:
+    print i,
+```
+
 
 **2-8**
 
@@ -114,6 +134,7 @@ while x > 0:
     i = i + a[x]
 print i
 ```
+
 ```python
 a = input('input a list: ')
 x = 0
@@ -148,6 +169,10 @@ while True:
         print 'Bad~'
         x = float(raw_input('re-input a number between 1 and 100: '))
 ```
-
-**2-11**
-
+---
+```python
+while True:
+    x = float(raw_input('input a number between 1 and 100: '))
+    if 1 <= x <= 100:
+        print 'Good~'
+        break
