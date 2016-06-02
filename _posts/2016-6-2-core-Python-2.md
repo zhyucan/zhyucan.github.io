@@ -105,3 +105,49 @@ for i in range(len(a)):
 
 **2-8**
 
+```python
+a = input('input a list: ')
+i = 0
+x = len(a)
+while x > 0:
+    x = x - 1  
+    i = i + a[x]
+print i
+```
+```python
+a = input('input a list: ')
+x = 0
+for i in range(len(a)):
+    x = x + a[i]
+print x
+```
+
+**2-9**
+
+```python
+a = input('input a list: ')
+x = 0
+for i in range(len(a)):
+    x = x + a[i]
+print float(x) / float(len(a))
+```
+
+**2-10**
+
+```python
+x = float(raw_input('input a number between 1 and 100: '))
+while True:
+    if x >= 1:
+        if x <= 100:
+            print 'Good~'
+            break
+        else:
+            print 'Bad~'
+            x = float(raw_input('re-input a number between 1 and 100: '))
+    else:
+        print 'Bad~'
+        x = float(raw_input('re-input a number between 1 and 100: '))
+```
+
+**2-11**
+
