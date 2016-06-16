@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Python 核心编程 ~ 5
+title: Python 核心编程 ~ 6
 categories: [blog ]
 tags: [Python ]
-description: Python 核心编程 第五章
+description: Python 核心编程 第六章
 ---
 
 **6-1**
