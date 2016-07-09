@@ -8,7 +8,7 @@ description: 二分查找的几个例子
 
 **1**
 
-x > 0，x 的平方根？
+x > 1，x 的平方根？
 
 ```python
 x = float(raw_input('x = '))
@@ -26,6 +26,28 @@ while abs(ans ** 2 - x) >= epsilon:
 
 print ans
 ```
+
+**对上面代码的优化**
+
+```python
+def findRoot1(x, power, epsilon):
+    if x < 0 and power % 2 == 2: # 负数不能开偶数次方
+        return None 
+    low = min(-1, x)
+    high = max(1, x) # 考虑到 x < 0 or |x|<1 的情况
+    ans = (high + low) / 2.0
+    while abs(ans ** power - x) > epsilon:
+        if ans ** power < x:
+            low = ans 
+        else:
+            high = ans
+        ans = (high + low) / 2.0
+    return ans
+            
+```
+
+
+
 
 **2**
 
