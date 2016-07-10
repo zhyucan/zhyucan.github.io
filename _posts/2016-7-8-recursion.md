@@ -67,4 +67,52 @@ def Fibo(n):
 # Fibo(n) = (n-1) + (n-2) = Fibo(n-1) + Fibo(n-2)
 ```
 
+**5**
 
+回文字符串
+
+```python
+def palin(s):
+    if len(s) == 0 or len(s) == 1:
+        return True
+    else:
+        if s[0] == s[-1]:
+            s = s[1:-1]
+            return palin(s)
+        else:
+            return False
+```
+
+```python
+import string 
+
+def palin(s):
+
+    # 去掉字符串中的空格和符号
+    def toChars(s):
+        s = s.lower()
+        ans = ''
+        for c in s:
+            if c in string.lowercase:
+                ans = ans + c
+        return ans
+    
+    def isPal(s):
+        if len(s) <= 1:
+            return True
+        else:
+            return s[0] == s[-1] and isPal(s[1:-1]) # 1行代码抵我5行...
+            
+    return isPal(toChars(s))
+```
+
+**6**
+
+字符串长度
+
+```python
+def lenRecur(aStr):
+    if aStr == '':
+        return 0
+    return 1 + lenRecur(aStr[1:])
+```
