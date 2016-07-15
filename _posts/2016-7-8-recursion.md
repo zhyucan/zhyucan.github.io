@@ -71,6 +71,8 @@ def Fibo(n):
 
 回文字符串
 
+*s 是否回文？*
+
 ```python
 def palin(s):
     if len(s) == 0 or len(s) == 1:
@@ -106,6 +108,14 @@ def palin(s):
     return isPal(toChars(s))
 ```
 
+---
+
+*s1 & s2 互为回文串？*
+
+
+
+
+
 **6**
 
 字符串长度
@@ -115,4 +125,27 @@ def lenRecur(aStr):
     if aStr == '':
         return 0
     return 1 + lenRecur(aStr[1:])
+```
+
+**7**
+
+字母是否存在于，一个「元素按字母顺序排列」的字符串中
+
+```python
+def isIn(char, aStr):
+    if aStr == '':
+        return False
+    if len(aStr) == 1:
+        return aStr == char
+    
+    minum = len(aStr) / 2
+    micha = aStr[minum]
+    
+    if micha == char:
+        return True
+    elif micha > char:
+        return isIn(char, aStr[:minum])
+    else:
+        return isIn(char, aStr[minum:])
+    return False
 ```
