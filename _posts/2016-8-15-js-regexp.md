@@ -18,147 +18,148 @@ description: js 正则
 > 需求 1：匹配电话号码  
 > 需求 2：匹配固定邮箱
 
-* **regexObj.test(str)**
+#### **regexObj.test(str)**
 
-    - **用途** - 测试正则表达式与指定字符串是否匹配
-       - e.g.
+* **用途** - 测试正则表达式与指定字符串是否匹配
+  - e.g.
     
-         `/13244448888/.test('1324444888'); //false`
+     `/13244448888/.test('1324444888'); //false`
       
-         `/13244448888/.test('13244448888'); //true`
+     `/13244448888/.test('13244448888'); //true`
       
-         **`/13244448888/.test('x13244448888y'); //true ~不匹配为何 true~`**
+     **`/13244448888/.test('x13244448888y'); //true ~不匹配为何 true~`**
       
-    - **锚点** - 匹配一个位置     
+* **锚点** - 匹配一个位置     
 
-        - ^ : 起始位置
+  - ^ : 起始位置
             
-          `/^http:/.test('http://yucan.win'); //ture`
+     `/^http:/.test('http://yucan.win'); //ture`
               
-          `/^http:/.test('ahttp://yucan.win'); //false`
+     `/^http:/.test('ahttp://yucan.win'); //false`
               
-          `/^http:/.test('https://yucan.win'); //false`
+     `/^http:/.test('https://yucan.win'); //false`
               
-        - $ : 结尾位置
+  - $ : 结尾位置
             
-          `/\.jpg$/.test('1.jpg'); //true`
+     `/\.jpg$/.test('1.jpg'); //true`
               
-          `/\.jpg$/.test('1.png'); //false`
+     `/\.jpg$/.test('1.png'); //false`
               
-        - \b : 单词边界
+  - \b : 单词边界
             
-          `/\bis\b/.test('this'); //false`
+     `/\bis\b/.test('this'); //false`
               
-          `/\bis\b/.test('this is dom'); //true`
+     `/\bis\b/.test('this is dom'); //true`
         
-        - e.g.
+  - e.g.
           
-          `/^13244448888$/.test('x13244448888y'); //false`
+     `/^13244448888$/.test('x13244448888y'); //false`
       
-          `/^13244448888$/.test('13244448888'); //true`
+     `/^13244448888$/.test('13244448888'); //true`
         
-          **`/^13244448888$/.test('13212345678'); //false ~不能匹配任意号码~`**
+     **`/^13244448888$/.test('13212345678'); //false ~不能匹配任意号码~`**
           
           
-    - **字符类** - 匹配一类字符中的**一个**
+* **字符类** - 匹配一类字符中的**一个**
     
-       - `[abc]` : a or b or c
+  - `[abc]` : a or b or c
        
-       - `[0-9]` : 一个数字 ; [^0-9] : 非数字的一个字符
+  - `[0-9]` : 一个数字 ; [^0-9] : 非数字的一个字符
        
-       - `[a-z]` : 一个字母
+  - `[a-z]` : 一个字母
        
-       - `.` : 任一字符(换行除外)
+  - `.` : 任一字符(换行除外)
        
-       - e.g. 
+  - e.g. 
        
-         `/[0-9]/.test('123'); //true`
+     `/[0-9]/.test('123'); //true`
          
-         `/[0-9]/.test('abc'); //false`
+     `/[0-9]/.test('abc'); //false`
          
-         `/[a-z]/.test('abc'); //true`
+     `/[a-z]/.test('abc'); //true`
          
-         `/[^0-9]/.test('abc'); //true`
+     `/[^0-9]/.test('abc'); //true`
          
-         `/./.test('1 a#$%^&*'); //true`
+     `/./.test('1 a#$%^&*'); //true`
          
-         **`/^1[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/.test('13212345678'); //true ~我要偷懒~`**
+     **`/^1[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/.test('13212345678'); //true ~我要偷懒~`**
          
-    - **元字符** - 具有特殊意义的字符
+* **元字符** - 具有特殊意义的字符
     
-       - ^、$、\b
+  - ^、$、\b
        
-       - \d : [0-9] ; \D : [^\d]
+  - \d : [0-9] ; \D : [^\d]
        
-       - \s : 空白符 ; \S : [^\s]
+  - \s : 空白符 ; \S : [^\s]
        
-       - \w: [A-Za-z0-9_] ; \W : [^\w]
+  - \w: [A-Za-z0-9_] ; \W : [^\w]
        
-       - e.g. 
+  - e.g. 
        
-         `/\d/.test('123'); //true`
+     `/\d/.test('123'); //true`
          
-         `/\d/.test('1ab'); //true`
+     `/\d/.test('1ab'); //true`
          
-         `/\D/.test('1ab'); //true`
+     `/\D/.test('1ab'); //true`
          
-         `/\D/.test('123'); //false`
+     `/\D/.test('123'); //false`
          
-         **`/^1\d\d\d\d\d\d\d\d\d\d$/.test('13212345678'); //true ~再懒点好嘛~`**
+     **`/^1\d\d\d\d\d\d\d\d\d\d$/.test('13212345678'); //true ~再懒点好嘛~`**
          
-    - **量词** - 出现的次数
+* **量词** - 出现的次数
     
-       - {m, n} : m 到 n 次
+  - {m, n} : m 到 n 次
        
-       - \* : {0,}
+  - \* : {0,}
        
-       - ? : {0, 1}
+  - ? : {0, 1}
        
-       - \+ : {1,}
+  - \+ : {1,}
        
-       - e.g.
+  - e.g.
        
-         `/\d*/.test('abc'); //true`
+     `/\d*/.test('abc'); //true`
          
-         `/\d+/.test('abc'); //false`
+     `/\d+/.test('abc'); //false`
          
-         `/\d+/.test('1abc'); //true`
+     `/\d+/.test('1abc'); //true`
          
-         `/https?:/.test('http://yucan.win'); //true`
+     `/https?:/.test('http://yucan.win'); //true`
          
-         `/https?:/.test('https://yucan.win'); //true`
+     `/https?:/.test('https://yucan.win'); //true`
          
-         `/https?:/.test('httpss://yucan.win'); //false`
+     `/https?:/.test('httpss://yucan.win'); //false`
          
-         **`/^1\d{10}&/.test('13212345678'); //true ~哇塞，好棒，成就 1 达成~`**
+     **`/^1\d{10}&/.test('13212345678'); //true ~哇塞，好棒，成就 1 达成~`**
          
-    - **转义符** - 需要匹配的字符是元字符
+* **转义符** - 需要匹配的字符是元字符
     
-       - e.g.
+  - e.g.
        
-         `/http:///.test('http://yucan.win'); //what-fuck`
+     `/http:///.test('http://yucan.win'); //what-fuck`
          
-         `/http:\/\//.test('http://yucan.win'); //true`
+     `/http:\/\//.test('http://yucan.win'); //true`
          
-         `/@gmail.com$/.test('zhyucan@gmailicom'); //true`
+     `/@gmail.com$/.test('zhyucan@gmailicom'); //true`
          
-         `/@gmail\.com/.test('zhyucan@gmailicom'); //false`
-         
-    - **多选分支** - 或
+     `/@gmail\.com/.test('zhyucan@gmailicom'); //false`
+     
+* **多选分支** - 或
 
-       - `/thi(c|n)k/` === `/thi[cn]k/`
+  - `/thi(c|n)k/` === `/thi[cn]k/`
 
-       - e.g.
+  - e.g.
 
-         `/\.(png|jpg|jpeg|gif)$/`
+     `/\.(png|jpg|jpeg|gif)$/`
 
-         **`/(.+)@(163|126|188)\.com$/.test('xyz@126.com'); //true ~只匹配网易邮箱，成就 2 达成~`**
+     **`/(.+)@(163|126|188)\.com$/.test('xyz@126.com'); //true ~只匹配网易邮箱，成就 2 达成~`**
          
-         
-> ![](http://o7v1v0rr4.bkt.clouddn.com/url.png)  
-> 需求 3：获取图中字符串的每个部分
 
-* **捕获**
+> 需求 3：获取下图字符串中的每个部分        
+> ![](http://o7v1v0rr4.bkt.clouddn.com/url.png)
+
+
+#### **捕获**
 
     
     
