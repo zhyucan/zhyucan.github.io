@@ -18,7 +18,8 @@ description: js 正则
 > 需求 1：匹配电话号码  
 > 需求 2：匹配固定邮箱
 
-* regexObj.test(str)
+* **regexObj.test(str)**
+
 
     - **用途** - 测试正则表达式与指定字符串是否匹配
        - e.g.
@@ -155,11 +156,10 @@ description: js 正则
          **`/(.+)@(163|126|188)\.com$/.test('xyz@126.com'); //true ~只匹配网易邮箱，成就 2 达成~`**
          
          
-> 需求 3：
+> 需求 3：获取图中字符串的每个部分
+> ![](http://o7v1v0rr4.bkt.clouddn.com/url.png)
 
-
-
-![](http://o7v1v0rr4.bkt.clouddn.com/url.png)
+* **捕获**
 
     
     
