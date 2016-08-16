@@ -155,11 +155,36 @@ description: js 正则
      **`/(.+)@(163|126|188)\.com$/.test('xyz@126.com'); //true ~只匹配网易邮箱，成就 2 达成~`**
          
 
-> 需求 3：获取下图字符串中的每个部分        
+> 需求 3：获取下图字符串中的每个部分  
 > ![](http://o7v1v0rr4.bkt.clouddn.com/url.png)
 
 
 #### **捕获**
+
+* **用途** - 保存匹配到的字符串，日后再用
+
+  - () : 捕获
+
+  - (?:) : 不捕获
+
+  - 使用
+     - $1, $2, ...
+     - api 参数或返回值 
+      
+* **str.match(regexp)**
+
+  - 获取匹配的字符串
+  
+			```js
+			  var url = "http://blog.163.com/album?id=1#comment";
+			  var reg = /(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?/;
+			  var arr = url.match(reg);
+			  var protocol = arr[1];
+			  var host = arr[2];
+			  var pathname = arr[3];
+			  var search = arr[4];
+			  var hash = arr[5];
+			  ```
 
     
     
