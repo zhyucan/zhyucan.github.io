@@ -175,16 +175,26 @@ description: js 正则
 
   - 获取匹配的字符串
   
-			```js
-			  var url = "http://blog.163.com/album?id=1#comment";
-			  var reg = /(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?/;
-			  var arr = url.match(reg);
-			  var protocol = arr[1];
-			  var host = arr[2];
-			  var pathname = arr[3];
-			  var search = arr[4];
-			  var hash = arr[5];
-			  ```
+```js
+var url = "http://blog.163.com/album?id=1#comment";
+// reg = /(http: or https:)//("至少1个 非/")("/" + "任意个 非?")可有可无("?" + "任意个 非#")可有可无("#" + "任意个 任意字符")可有可无/;
+var reg = /^(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?$/;
+var arr = url.match(reg);
+// > "http://blog.163.com/album?id=1#comment".match(/(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?/);
+// < ["http://blog.163.com/album?id=1#comment", "http:", "blog.163.com", "/album", "?id=1", "#comment"] 
+var protocol = arr[1];
+var host = arr[2];
+var pathname = arr[3];
+var search = arr[4];
+var hash = arr[5];
+// 上面的正则表达式可简写为：
+// /(https?:)\/\/([^\/]+)([^\?]*)([^#]*)(.*)/
+```
+
+
+	
+  
+  
 
     
     
