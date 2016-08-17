@@ -6,7 +6,7 @@ tags: [NetEase-Frontend ]
 description: js 正则
 ---
 
-<h3>定义<h3> 
+### 定义
 
 * 描述字符串规则的表达式
     - `/pattern/attrs`
