@@ -180,20 +180,22 @@ description: js 正则
 var url = "http://blog.163.com/album?id=1#comment";
 var reg = /^(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?$/;
 var arr = url.match(reg);
+
 /*
-reg = /(http: or https:)//("至少1个 非/")("/" + "任意个 非?")可有可无("?" + "任意个 非#")可有可无("#" + "任意个 任意字符")可有可无/;
-> "http://blog.163.com/album?id=1#comment".match(/(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?/);
-< ["http://blog.163.com/album?id=1#comment", "http:", "blog.163.com", "/album", "?id=1", "#comment"]
-*//
+上面的正则表达式可简写为：
+/(https?:)\/\/([^\/]+)([^\?]*)([^#]*)(.*)/
+*/
 
 var protocol = arr[1];
 var host = arr[2];
 var pathname = arr[3];
 var search = arr[4];
 var hash = arr[5];
+
 /*
-上面的正则表达式可简写为：
-/(https?:)\/\/([^\/]+)([^\?]*)([^#]*)(.*)/
+reg = /(http: or https:)//("至少1个 非/")("/" + "任意个 非?")可有可无("?" + "任意个 非#")可有可无("#" + "任意个 任意字符")可有可无/;
+> "http://blog.163.com/album?id=1#comment".match(/(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?/);
+< ["http://blog.163.com/album?id=1#comment", "http:", "blog.163.com", "/album", "?id=1", "#comment"]
 */
 ```
 
@@ -204,19 +206,19 @@ var hash = arr[5];
   
 ```js
 var str1 = "The price of tomato is 5.";
-str1.replace(/(\d+)/, "$1.00"); //把"()"捕获的数字保存在$1里
+str1.replace(/(\d+)/, "$1.00"); // 把"()"捕获的数字保存在$1里
 
 var str2 = "The price of tomato is 5, the price of apple is 10.";
-str2.replace(/(\d+)/, "$1.00"); //只替换了"5"，因为正则表达式每次只做一次匹配
+str2.replace(/(\d+)/, "$1.00"); // 只替换了"5"，因为正则表达式每次只做一次匹配
 
 var str3 = "The price of tomato is 5, the price of apple is 10.";
-str3.replace(/(\d+)/g, "$1.00"); //gobal 属性，全局匹配
+str3.replace(/(\d+)/g, "$1.00"); // gobal 属性，全局匹配
 ```
 
 ```js
-//标签转义
+// 标签转义
 var html = "<label>网址:</label><input placeholder='以 http://起始'>";
-//函数的输入值，是正则表达式匹配到的内容(< or >)；函数的返回值，则是用来替换匹配到的内容
+// 函数的输入值，是正则表达式匹配到的内容(< or >)；函数的返回值，则是用来替换匹配到的内容
 html = html.replace(/[<>]/g, function(m0){
   switch(m0){
     case "<":
@@ -225,4 +227,21 @@ html = html.replace(/[<>]/g, function(m0){
       return "&gt;";
   }
 });
+```
+
+* regexpObj.exec(str)
+
+  - 更强大的检索
+     - 更详尽的结果：index
+     - 过程的状态：lastIndex
+     
+```js
+var reg = /(.)(\d+)/g;
+var scores = "Tom $88, Nicholas ￥100, jack £38.";
+var result;
+while (result = rag.exec(scores)) {
+  console.log(result);
+  console.log(reg.lastIndex);
+  // reg.lastIndex += 10;
+}
 ```
