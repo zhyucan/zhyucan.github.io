@@ -155,8 +155,9 @@ description: js 正则
      **`/(.+)@(163|126|188)\.com$/.test('xyz@126.com'); //true ~只匹配网易邮箱，成就 2 达成~`**
          
 
-> 需求 3：获取下图字符串中的每个部分  
 > ![](http://o7v1v0rr4.bkt.clouddn.com/url.png)
+> 需求 3：捕获上图字符串中的每个部分  
+> 需求 4：替换字符串的某部分 e.g : "The price of tomato is 5." → "The price of tomato is 5.00."
 
 
 #### **捕获**
@@ -177,7 +178,7 @@ description: js 正则
   
 ```js
 var url = "http://blog.163.com/album?id=1#comment";
-// reg = /(http: or https:)//("至少1个 非/")("/" + "任意个 非?")可有可无("?" + "任意个 非#")可有可无("#" + "任意个 任意字符")可有可无/;
+//reg = /(http: or https:)//("至少1个 非/")("/" + "任意个 非?")可有可无("?" + "任意个 非#")可有可无("#" + "任意个 任意字符")可有可无/;
 var reg = /^(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?$/;
 var arr = url.match(reg);
 // > "http://blog.163.com/album?id=1#comment".match(/(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?/);
@@ -192,9 +193,31 @@ var hash = arr[5];
 ```
 
 
-	
-  
-  
+* str.replace(regexp/substr, replacement)
 
-    
-    
+  - 替换一个子串
+  
+```js
+var str1 = "The price of tomato is 5.";
+str1.replace(/(\d+)/, "$1.00"); //把"()"捕获的数字保存在$1里
+
+var str2 = "The price of tomato is 5, the price of apple is 10.";
+str2.replace(/(\d+)/, "$1.00"); //只替换了"5"，因为正则表达式每次只做一次匹配
+
+var str3 = "The price of tomato is 5, the price of apple is 10.";
+str3.replace(/(\d+)/g, "$1.00"); //gobal 属性，全局匹配
+```
+
+```js
+//标签转义
+var html = "<label>网址:</label><input placeholder='以 http://起始'>";
+//函数的输入值，是正则表达式匹配到的内容(< or >)；函数的返回值，则是用来替换匹配到的内容
+html = html.replace(/[<>]/g, function(m0){
+  switch(m0){
+    case "<":
+      return "&lt;";
+    case ">":
+      return "&gt;";
+  }
+});
+```
