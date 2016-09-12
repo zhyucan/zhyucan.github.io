@@ -2,7 +2,7 @@
 layout: post
 title: JavaScript 正则表达式
 categories: [blog ]
-tags: [NetEase-Frontend ]
+tags: [Front-end ]
 description: js 正则
 ---
 
