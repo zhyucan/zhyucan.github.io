@@ -12,7 +12,7 @@ header-img: "img/autumn2.jpg"
 
 
 
-<center>*長江悲已滯，萬里念將歸。況屬高風晚，山山黃葉飛。*</center>
+<center>長江悲已滯，萬里念將歸。況屬高風晚，山山黃葉飛。</center>
 
 
 
